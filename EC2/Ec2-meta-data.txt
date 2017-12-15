@@ -1,0 +1,18 @@
+## accessing EC2 instance metadata
+curl http://169.254.169.254/latest/meta-data
+
+## to get bash script details
+curl http://169.254.169.254/latest/user-data
+## If you need public ip address
+curl http://169.254.169.254/latest/meta-data/public-ipv4
+
+## Copy public ip adress to a file
+curl http://169.254.169.254/latest/meta-data/public-ipv4 > public_ip.html
+
+
+Use case: 
+Step 1: On boot write to a file
+Step 2: Copy to S3
+Step 3: On uploading trigger lambda function
+Step 4: Create zip file.
+

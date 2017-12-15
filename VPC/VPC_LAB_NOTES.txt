@@ -1,0 +1,59 @@
+VPC: Virtual private cloud.
+
+Steps for the lab:
+
+Step 1: VPC creation with name CloudExpert (Go to Your VPC tab and click on create VPC)
+       a. by default a route table is configured.
+	   b. by default a security group is configured.
+
+Step 2: Creation of subnet
+	i. Create Subnets
+       a. Name of subnet something like: 10.0.1.0 - ap-south-1a
+       b. Choose AZ: 
+	   c. Choose CIDR: 10.0.1.0/24
+
+       verify available number of ip's : 251
+	   
+	ii. Create one more subnet
+	   a. Name of subnet something like: 10.0.2.0 - ap-south-1b
+       b. Choose AZ: 
+	   c. Choose CIDR: 10.0.2.0/24
+	   
+Step 3: Create Internet gateway
+	  a. You can create with name MyInternetGateWay
+	  b. Attach it to VPC.
+	  
+	  Note: "You can attach only one VPC to internet gateway"
+	  
+Step 4: Create Route table
+	a. Create Public route table, you can name it is as MyPublicRoute
+	b. Go to routes tab, add new route. Destination can be 0.0.0.0/0 and target is internet gateway
+	    (optional : for ipv6, you can specify: destination -> ::/0 and destination --> internetgateway)
+	c. Do subnet association (assign public route table to one of the subnet)	
+
+Step 5: For custom VPC, auto-assign public ip won't be enabled. So, enable auto-assign public ip for public 
+        subnet (by going to subnet actions)
+		
+Step 6: Launch EC2 instance to test the configuration.
+
+    i. Launch instance in public subnet. You can call as PublicWebServer
+    
+	    a. Create new security group 'WebserverSg'
+		   (Things to remember, Security group doesn't spam VPC, you need to create new one.)
+	
+	ii.	Launch instance in private subnet. You can call as ApplicationServer.
+	
+	    a. You can map to default SG
+	
+	
+		 
+		
+		
+
+	
+	
+
+  	  
+	  
+	  
+

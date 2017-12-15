@@ -1,0 +1,48 @@
+************Login to Ec2 through client************************
+
+Mac Users:
+
+Step 1: create a folder aws
+
+Step 2: Download aws private key there.
+
+Step 3: change permission chmod 400 private_key.pem
+
+Step 4: connect using this command
+        ssh ec2-user@public_id_address -i private_key.pem
+		
+		press yes
+		
+optional: update operating system
+
+step 5: yum update -y
+
+To make this instance as web server(apache)
+
+step 6: install apache
+         yum install httpd -y
+	
+Create your first html page
+
+Step 7 : cd /var/www/html
+         nano index.html  (ctrl X then press Yes)
+	
+Step 8: Start apache
+		service httpd start
+		
+How to test:
+
+Go to browser: enter public ip address of your EC2 instance.
+
+
+For windows users:
+
+Putty won't support pem file, so generate ppk file.(use puttygen)
+
+1. generate ppk file
+
+2. Login to putty:
+    hostname: ec2-user@public_id_address
+	ssh: go to auth, specify ppk file
+	
+	

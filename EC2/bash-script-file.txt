@@ -1,0 +1,15 @@
+#!/bin/bash
+yum update -y
+yum install httpd -y
+service httpd start
+chkconfig httpd on
+aws s3 cp s3://bucket_name/index.html /var/www/html
+
+# if you want to copy all files
+# aws s3 cp s3://bucket_name/index.html /var/www/html --recursive
+
+# sometime last command might not work, you will get version error, then you need to specify region name.
+# aws s3 cp s3://bucket_name/index.html /var/www/html -- region region_name
+
+
+
